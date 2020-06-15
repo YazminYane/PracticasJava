@@ -1,0 +1,58 @@
+El archivo de configuración del programa es necesario para poder ejecutar este. El archivo no debe ser movido a otra
+ubicación ni cambiar de nombre y tampoco debe contener nada más que los datos de configuración. De lo contrario el
+programa no se ejecutará correctamente. El formato para el archivo de configuración es el siguiente:
+
+numeroDeEstados numeroDeSímbolos
+Lista de Símbolos
+numeroDeEstadosFinales Lista De Estados Finales
+Lista De
+Transiciones
+
+NOTA: Debe tomarse en cuenta que el orden en que los símbolos serán escritos deberá corresponder al orden con que están
+escritas las transiciones.
+
+NOTA 2: Para fines de estandarización siempre se considerará al estado inicial como el estado 0, por lo que en la lista de 
+estados finales y en la lista de transiciones deberá considerarse que estadoEnLista = numeroDeEstado - 1. Así por ejemplo,
+si mi estado final es el 5, en la lista será escrito como 4.
+
+NOTA 3: Las transiciones que den un error deberán marcarse con la letra "E".
+
+A continucación se muestra un ejemplo de la configuración con la siguiente tabla de transición:
+
+Edo | a | b
+ 1  | 1 | 2
+*2  | E | 2
+
+La configuración con esa tabla de transición quedaría de la siguiente manera:
+
+--- Inicio del archivo de configuración ---
+2 2
+a b
+1 1
+0 1
+E 1
+---  Fin del archivo de configuración   ---
+
+NOTA 4: En caso de eliminación del archivo de configuración el problema se puede resolver fácilmente creando un nuevo
+documento de texto (formato .txt) llamado "Configuracion".
+
+NOTA 5: Por defecto en el programa se incluye una configuración inicial para la expresión (a|b|c)*ac* con una tabla de
+transición y una configuración:
+
+Edo | a | b | c
+ 0  | 1 | 2 | 3
+*1  | 1 | 2 | 4
+ 2  | 1 | 2 | 3
+ 3  | 1 | 2 | 3
+*4  | 1 | 2 | 4
+
+--- Inicio del archivo de configuración ---
+5 3
+a b c
+2 1 4
+1 2 3
+1 2 4
+1 2 3
+1 2 3
+1 2 4
+---  Fin del archivo de configuración   ---

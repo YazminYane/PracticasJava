@@ -1,0 +1,3 @@
+INICIOPROGRAMA
+moverIzquierda;
+FINPROGRAMA
